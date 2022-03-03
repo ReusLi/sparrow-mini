@@ -1,20 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-function App() {
-  // 声明一个新的叫做 “count” 的 state 变量
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
+import React,{Component} from 'react';
+import ReactDOM,{render} from 'react-dom';
+const ref = React.createRef();
+function logProps(WrappedComponent) {
+    class LogProps extends React.Component {
+      render() {
+        const {forwardedRef, ...rest} = this.props;
+        return <WrappedComponent ref={forwardedRef} {...rest} />;
+      }
+    }
+  
+    return React.forwardRef((props,ref)=>{
+        return <LogProps forwardedRef={ref} {...props}/>
+    });
+}
+class Child extends Component{
+    constructor(){
+        super();
+    }
+    render(){
+        return <div style={{color: 'red'}}>{this.props.te}</div>
+    }
+}
+const LogChild = logProps(Child); 
+class Parent extends Component{
+    constructor(){
+        super();
+    }
+    componentDidMount(){
+        // console.log(ref); //获取Child组件 
+    }
+    render(){
+        return <LogChild ref={ref} txt="parent props txt" te="a"/>
+    }
 }
 
-export default App;
+export default Parent;
