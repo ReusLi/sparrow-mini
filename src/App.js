@@ -15,15 +15,22 @@ function useComstumCount(initCount) {
   return [count, setCount];
 }
 
+function templateCom() {
+  return (
+    <div>test</div>
+  )
+}
+
 function Example() {
   console.log(223)
   let [count, setCount] = useState(0);
+  const TemplateCom = templateCom();
   // setCount(1)
   // let [count, setCount] = useComstumCount(0);
   // const [count, setCount] = useState(0);
 
   return (
-    <div onClick={() => setCount(count + 1)}>{count}</div>
+    <div>111111111{TemplateCom}</div>
   )
 }
 
