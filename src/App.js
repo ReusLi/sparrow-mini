@@ -1,42 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 
-// import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import React,{Component} from 'react';
-import ReactDOM,{render} from 'react-dom';
-const ref = React.createRef();
-function logProps(WrappedComponent) {
-    class LogProps extends React.Component {
-      render() {
-        const {forwardedRef, ...rest} = this.props;
-        return <WrappedComponent ref={forwardedRef} {...rest} />;
-      }
-    }
-  
-    return React.forwardRef((props,ref)=>{
-        return <LogProps forwardedRef={ref} {...props}/>
-    });
-}
-class Child extends Component{
-    constructor(){
-        super();
-    }
-    render(){
-        return <div style={{color: 'red'}}>{this.props.te}</div>
-    }
-}
-const LogChild = logProps(Child); 
-class Parent extends Component{
-    constructor(){
-        super();
-    }
-    componentDidMount(){
-        // console.log(ref); //获取Child组件 
-    }
-    render(){
-        return <LogChild ref={ref} txt="parent props txt" te="a"/>
-    }
+function useComstumCount(initCount) {
+  console.log(112)
+  let [count, setCount] = useState(initCount);
+  // let [count1, setCount1] = useState(initCount);
+  useEffect(() => {
+    // setCount1(1);
+    console.log(setCount)
+  })
+  setCount(2)
+
+  return [count, setCount];
 }
 
-export default Parent;
+function Example() {
+  console.log(223)
+  let [count, setCount] = useState(0);
+  // setCount(1)
+  // let [count, setCount] = useComstumCount(0);
+  // const [count, setCount] = useState(0);
+
+  return (
+    <div onClick={() => setCount(count + 1)}>{count}</div>
+  )
+}
+
+export default Example;
