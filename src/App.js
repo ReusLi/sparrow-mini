@@ -30,7 +30,10 @@ function Example() {
   // const [count, setCount] = useState(0);
 
   return (
-    <div>111111111{TemplateCom}</div>
+    <div>
+      111111111{TemplateCom}
+      <h1>test for jsx emmet</h1>
+    </div>
   )
 }
 
