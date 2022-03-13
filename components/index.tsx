@@ -43,6 +43,10 @@ export { default as Breadcrumb } from './breadcrumb';
 export type { ButtonProps } from './button';
 export { default as Button } from './button';
 
+
+export type { ButtonReusProps } from './button-reus';
+export { default as ButtonReus } from './button-reus';
+
 export type { CalendarProps } from './calendar';
 export { default as Calendar } from './calendar';
 
