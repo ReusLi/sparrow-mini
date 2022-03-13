@@ -23,8 +23,10 @@ ReactDOM.render(
     <Button type="dashed">Dashed Button</Button>
     <br />
     <Button type="text">Text Button</Button>
-    <Button type="link">Link Button</Button>
-    <ButtonReus></ButtonReus>
+    <Button type="primary" ref="tttt">文章问我</Button>
+    <ButtonReus>
+      <h1>12</h1>
+    </ButtonReus>
   </>,
   mountNode,
 );

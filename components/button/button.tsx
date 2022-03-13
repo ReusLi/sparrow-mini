@@ -171,7 +171,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
         setHasTwoCNChar(true);
       }
     } else if (hasTwoCNChar) {
-      setHasTwoCNChar(false);
+        setHasTwoCNChar(false);
     }
   };
 

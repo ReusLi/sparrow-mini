@@ -11,7 +11,7 @@ interface CompoundedComponent
 
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonReusProps> = (props, ref) => {
     return (
-        <button>按钮</button>
+        <button>{props.children}</button>
     )
     // return ;
 };
