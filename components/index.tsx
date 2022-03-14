@@ -47,6 +47,9 @@ export { default as Button } from './button';
 export type { ButtonReusProps } from './button-reus';
 export { default as ButtonReus } from './button-reus';
 
+// export type { ButtonReusProps } from './button-reus/myReducer';
+export { default as MyApp } from './button-reus/myReducer';
+
 export type { CalendarProps } from './calendar';
 export { default as Calendar } from './calendar';
 
