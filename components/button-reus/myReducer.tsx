@@ -11,7 +11,6 @@ const myReducer = (state: any, action: any) => {
     default:
       return state;
   }
-  return state;
 }
 type MyContext = {
   state?: any;
