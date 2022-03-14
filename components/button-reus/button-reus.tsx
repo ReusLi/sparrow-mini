@@ -29,7 +29,7 @@ type MyContext = {
 const myContext = React.createContext<MyContext>({});
 
 const ContextProvider = (props: any) => {
-    const [state, dispatch] = React.useReducer(myReducer, { count: 0 });
+    const [state, dispatch] = React.useReducer(myReducer, { count: 2 });
     return (
         <myContext.Provider value={{ state, dispatch }}>
             {props.children}
@@ -73,5 +73,34 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonReusProps> =
 };
 
 const Button = React.forwardRef<unknown, ButtonReusProps>(InternalButton) as CompoundedComponent;
+
+type TestA = {
+    a: number;
+    b: number;
+}
+type TestB = {
+    c: number;
+}
+type Test = {
+    a: number;
+    b: number;
+} & Omit<TestB, 'c1'>;
+
+const obj: Test = {
+    a: 1,
+    b: 1,
+    c: 1
+}
+
+export type AnchorButtonProps = {
+    href: string;
+    target?: string;
+    onClick?: React.MouseEventHandler<HTMLElement>;
+  } & Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
+
+const ooo: AnchorButtonProps = {
+    href: '1',
+    media: 's'
+}
 
 export default Button;
