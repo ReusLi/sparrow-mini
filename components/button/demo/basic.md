@@ -27,7 +27,6 @@ ReactDOM.render(
     <ButtonReus>
       <h1>12</h1>
     </ButtonReus>
-    <MyApp></MyApp>
   </>,
   mountNode,
 );
