@@ -34,12 +34,12 @@ type ShowLoading = {
 const myContext = React.createContext<MyContext>({});
 const loadingContext = React.createContext<ShowLoading>({});
 const ContextProvider = (props: any) => {
-    const [state, dispatch] = React.useReducer(myReducer, { 
+    const [state, dispatch] = React.useReducer(myReducer, {
         count: 2,
         loading: false
     });
     return (
-        <myContext.Provider value={{state, dispatch}}>
+        <myContext.Provider value={{ state, dispatch }}>
             {props.children}
         </myContext.Provider>
     );
@@ -70,9 +70,25 @@ function LoadingIcon() {
     )
 }
 
+const Hello = (props: any) => {
+    return (
+        <p>Greetings</p>
+    );
+}
+
+const Wrapper = (config: any) => {
+    return (CompA: any) => {
+        return (Prop: any) => {
+            return <CompA></CompA>
+        }
+    }
+}
+
+
 function CounterTest(props: any) {
     const { state, dispatch } = React.useContext(myContext);
-    const { show, setLoading } = React.useContext(loadingContext);
+    // const { show, setLoading } = React.useContext(loadingContext);
+    const [ show, setLoading ] = React.useState(false);
     return (
         <div>
             CounterTest Count: {state.count}
@@ -89,11 +105,13 @@ function CounterTest(props: any) {
 }
 
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonReusProps> = (props, ref) => {
+    const TestVB = Wrapper({name: 'yfbill', age: 20})(Hello);
     return (
         <div className="App">
             <ContextProvider>
-                <Counter />
-                <CounterTest showLoading={false}/>
+                <Counter></Counter>
+                <CounterTest />
+                <TestVB />
             </ContextProvider>
         </div>
     )
