@@ -89,9 +89,17 @@ function CounterTest(props: any) {
     const { state, dispatch } = React.useContext(myContext);
     // const { show, setLoading } = React.useContext(loadingContext);
     const [ show, setLoading ] = React.useState(false);
+
+    const secondCount = React.useMemo(() => {
+        return Math.random();
+    }, [show]);
+
+    React.useEffect(() => {
+        console.log('111');
+    }, [show])
     return (
         <div>
-            CounterTest Count: {state.count}
+            CounterTest Count: {state.count} + {secondCount}
             <button>
                 {
                     show ? <LoadingIcon></LoadingIcon> : ''
@@ -105,7 +113,7 @@ function CounterTest(props: any) {
 }
 
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonReusProps> = (props, ref) => {
-    const TestVB = Wrapper({name: 'yfbill', age: 20})(Hello);
+    const TestVB = Wrapper({name: 'yfbill', age: 20})(CounterTest);
     return (
         <div className="App">
             <ContextProvider>
